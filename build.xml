@@ -95,7 +95,7 @@
       description="Generate JavascriptObject proto classes">
     <mkdir dir="out/proto/java" />
     <apply executable="protoc" failonerror="true" relative="true">
-      <arg value="--plugin=protoc-gen-gwt_overlay=protoc_plugins/gwt_overlay.py"/>
+      <arg value="--plugin=protoc-gen-gwt_overlay=redirect.bat"/>
       <arg value="--gwt_overlay_out=out/proto/java"/>
       <arg value="--proto_path=proto"/>
       <fileset dir="." includes="proto/**/*.proto"/>
@@ -183,7 +183,7 @@
   <target name="protoc.tests" depends="protoc.plugin.base" description="Generate test proto code">
     <mkdir dir="out/test/proto" />
     <apply executable="protoc" failonerror="true" relative="true">
-      <arg value="--plugin=protoc-gen-gwt_overlay=protoc_plugins/gwt_overlay.py"/>
+      <arg value="--plugin=protoc-gen-gwt_overlay=redirect.bat"/>
       <arg value="--gwt_overlay_out=out/test/proto"/>
       <arg value="--proto_path=test/proto"/>
       <fileset dir="." includes="test/proto/**/*.proto"/>
